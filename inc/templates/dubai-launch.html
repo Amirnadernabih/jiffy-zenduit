@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenTrack ELD | ELD Compliance Software for Trucking Fleets</title>
+    <style>
+
+        .dubai-launcher-wrapper *,
+    .dubai-launcher-wrapper *::before,
+    .dubai-launcher-wrapper *::after {
+        box-sizing: border-box;
+        border-color: #e5e7eb;
+    }
+
+    .dubai-launcher-wrapper {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(247, 248, 250);
+        color: rgb(27, 34, 42);
+        font-family: 'helvetica neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+
+    .dubai-launcher-wrapper h1,
+    .dubai-launcher-wrapper h2,
+    .dubai-launcher-wrapper h3,
+    .dubai-launcher-wrapper h4,
+    .dubai-launcher-wrapper h5,
+    .dubai-launcher-wrapper h6 {
+        font-family: 'Helvetica Neue', 'Arial', system-ui, sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0;
+    }
+
+    .dubai-launcher-wrapper a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .dubai-launcher-wrapper button {
+        cursor: pointer;
+        border: none;
+        background: none;
+        font-family: inherit;
+    }
+
+    .dubai-launcher-wrapper img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .dubai-launcher-wrapper .section-container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1280px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    @media (min-width: 1024px) {
+        .dubai-launcher-wrapper .section-container {
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+    }
+
+    .dubai-launcher-wrapper .section-padding {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    @media (min-width: 1024px) {
+        .dubai-launcher-wrapper .section-padding {
+            padding-top: 112px;
+            padding-bottom: 112px;
+        }
+    }
+
+    .dubai-launcher-wrapper .btn-primary-lg {
+        box-shadow: 0 4px 14px 0 rgba(38, 132, 211, 0.3);
+        transition: all 0.2s;
+    }
+
+    .dubai-launcher-wrapper .btn-primary-lg:hover {
+        box-shadow: 0 6px 20px 0 rgba(38, 132, 211, 0.45);
+        transform: translateY(-1px);
+    }
+
+    .dubai-launcher-wrapper .card-elevated {
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .dubai-launcher-wrapper .card-elevated:hover {
+        box-shadow: 0 12px 40px -12px rgba(38, 132, 211, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .dubai-launcher-wrapper .gradient-text {
+        background-image: linear-gradient(135deg, rgb(38, 132, 211), rgb(71, 161, 235));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .dubai-launcher-wrapper .nav-scrolled {
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgb(229, 231, 235) !important;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
+    }
+
+    @keyframes fade-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes scale-in {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slide-in-right {
+        from { opacity: 0; transform: translateX(40px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .dubai-launcher-wrapper .animate-fade-up { animation: fade-up 0.7s ease-out forwards; }
+    .dubai-launcher-wrapper .animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
+    .dubai-launcher-wrapper .animate-scale-in { animation: scale-in 0.4s ease-out forwards; }
+    .dubai-launcher-wrapper .animate-slide-in-right { animation: slide-in-right 0.8s ease-out forwards; }
+
+    .dubai-launcher-wrapper .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+    .dubai-launcher-wrapper .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+    .dubai-launcher-wrapper .floating { animation: float 3s ease-in-out infinite; }
+
+    .dubai-launcher-wrapper .industry-tab {
+        width: 100%;
+        text-align: left;
+        padding: 12px 16px;
+        border-radius: 12px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid transparent;
+        background-color: transparent;
+        cursor: pointer;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    .dubai-launcher-wrapper .industry-tab:hover:not(.is-active) {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+    .dubai-launcher-wrapper .industry-tab.is-active {
+        background-color: rgb(234, 243, 251) !important;
+        border-color: rgba(38, 132, 211, 0.25) !important;
+        box-shadow: 0 10px 30px -5px rgba(38, 132, 211, 0.15);
+        padding: 24px 20px;
+        align-items: flex-start;
+    }
+    .dubai-launcher-wrapper .industry-tab .tab-icon-bg {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(241, 243, 245);
+        transition: all 0.3s ease;
+    }
+    .dubai-launcher-wrapper .industry-tab.is-active .tab-icon-bg {
+        background-color: rgba(38, 132, 211, 0.15) !important;
+        width: 40px;
+        height: 40px;
+    }
+    .dubai-launcher-wrapper .industry-tab .tab-icon {
+        color: rgb(101, 116, 134);
+        width: 18px;
+        height: 18px;
+        transition: all 0.3s ease;
+    }
+    .dubai-launcher-wrapper .industry-tab.is-active .tab-icon {
+        color: rgb(38, 132, 211) !important;
+        width: 20px;
+        height: 20px;
+    }
+    .dubai-launcher-wrapper .industry-tab .tab-title {
+        font-weight: 600;
+        font-size: 15px;
+        color: rgb(101, 116, 134);
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+    .dubai-launcher-wrapper .industry-tab.is-active .tab-title {
+        color: rgb(27, 34, 42) !important;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .dubai-launcher-wrapper .industry-tab .tab-desc {
+        display: none;
+        font-size: 14px;
+        color: rgb(101, 116, 134);
+        line-height: 1.5;
+        margin-top: 4px;
+    }
+    .dubai-launcher-wrapper .industry-tab.is-active .tab-desc {
+        display: block !important;
+    }
+
+    .dubai-launcher-wrapper .carousel-tab:hover {
+        background-color: rgba(38, 132, 211, 0.05) !important;
+        border-color: rgba(38, 132, 211, 0.2) !important;
+    }
+    .dubai-launcher-wrapper .carousel-tab.is-active {
+        background-color: rgba(38, 132, 211, 0.1) !important;
+        border-color: rgba(38, 132, 211, 0.4) !important;
+    }
+    .dubai-launcher-wrapper .carousel-tab.is-active .tab-icon-bg { background-color: rgba(38, 132, 211, 0.2) !important; }
+    .dubai-launcher-wrapper .carousel-tab.is-active .tab-icon { color: rgb(38, 132, 211) !important; }
+    .dubai-launcher-wrapper .carousel-tab.is-active .tab-title { color: rgb(255, 255, 255) !important; }
+    .dubai-launcher-wrapper .carousel-tab.is-active .tab-desc { color: rgb(182, 190, 200) !important; }
+
+    @media (max-width: 768px) {
+        .dubai-launcher-wrapper .md-flex { display: none !important; }
+        .dubai-launcher-wrapper .md-grid-cols-3 { grid-template-columns: 1fr !important; }
+        .dubai-launcher-wrapper .md-grid-cols-5 { grid-template-columns: repeat(2, 1fr) !important; }
+        .dubai-launcher-wrapper .md-text-5xl { font-size: 48px !important; }
+        .dubai-launcher-wrapper .md-text-xl { font-size: 20px !important; }
+        .dubai-launcher-wrapper .md-block { display: none !important; }
+    }
+
+    @media (min-width: 768px) {
+        .dubai-launcher-wrapper .md-flex { display: flex !important; }
+        .dubai-launcher-wrapper .md-grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+        .dubai-launcher-wrapper .md-grid-cols-5 { grid-template-columns: repeat(5, 1fr) !important; }
+        .dubai-launcher-wrapper .md-block { display: block !important; }
+    }
+
+    @media (min-width: 1024px) {
+        .dubai-launcher-wrapper .lg-grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+        .dubai-launcher-wrapper .lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr) !important; }
+        .dubai-launcher-wrapper .lg-text-left { text-align: left !important; }
+        .dubai-launcher-wrapper .lg-mx-0 { margin-left: 0 !important; margin-right: 0 !important; }
+        .dubai-launcher-wrapper .lg-text-6xl { font-size: 60px !important; }
+        .dubai-launcher-wrapper .lg-text-5xl { font-size: 48px !important; }
+        .dubai-launcher-wrapper .lg-text-4xl { font-size: 36px !important; }
+        .dubai-launcher-wrapper .lg-flex { display: flex !important; }
+        .dubai-launcher-wrapper .lg-justify-start { justify-content: flex-start !important; }
+        .dubai-launcher-wrapper .lg-p-14 { padding: 56px !important; }
+    }
+
+    .dubai-launcher-wrapper .flex-2-cols {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .dubai-launcher-wrapper .flex-card-50 {
+        flex: 1 1 100%;
+        box-sizing: border-box;
+    }
+
+    @media (min-width: 640px) {
+        .dubai-launcher-wrapper .flex-card-50 {
+            flex: 1 1 calc(50% - 12px);
+        }
+    }
+
+    .dubai-launcher-wrapper .sm-flex-row { flex-direction: row !important; }
+    @media (max-width: 640px) {
+        .dubai-launcher-wrapper .sm-flex-row { flex-direction: column !important; }
+    }
+
+    .dubai-launcher-wrapper .challenge-card {
+        border-radius: 12px;
+        border: 1px solid rgba(242, 244, 247, 0.1);
+        padding: 28px;
+        transition: all 0.3s ease;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .dubai-launcher-wrapper .challenge-card:hover {
+        border-color: #3b82f666 !important;
+            background-color: rgba(59, 130, 246, 0.02);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.05);
+    }
+
+    .dubai-launcher-wrapper .nav-link {
+        color: rgb(101, 116, 134);
+        transition: color 0.2s;
+    }
+    .dubai-launcher-wrapper .nav-link:hover {
+        color: rgb(27, 34, 42) !important;
+    }
+
+    .dubai-launcher-wrapper .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        border: 2px solid rgba(242, 244, 247, 0.2);
+        background-color: transparent;
+        padding: 16px 32px;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(242, 244, 247);
+        transition: all 0.2s;
+        gap: 8px;
+        cursor: pointer;
+    }
+    .dubai-launcher-wrapper .btn-secondary:hover {
+        border-color: #3b82f6 !important;
+        background-color: rgba(59, 130, 246, 0.1);
+    }
+
+
+
+    .dubai-launcher-wrapper .btn-primary-lg {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background-color: rgb(38, 132, 211);
+        padding: 16px 32px;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(255, 255, 255);
+        transition: all 0.2s;
+        gap: 8px;
+        cursor: pointer;
+        border: none;
+    }
+    .dubai-launcher-wrapper .btn-primary-lg:hover {
+        background-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .dubai-launcher-wrapper .carousel-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(31, 37, 45, 0.8);
+        border: 1px solid rgba(38, 132, 211, 0.3);
+        color: rgb(255, 255, 255);
+        transition: all 0.2s;
+        z-index: 20;
+        cursor: pointer;
+    }
+    .dubai-launcher-wrapper .carousel-btn:hover {
+        background-color: rgba(59, 130, 246, 0.2) !important;
+        border-color: #3b82f6 !important;
+    }
+
+    .dubai-launcher-wrapper .btn-outline-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px !important;
+        border: 1px solid rgb(229, 231, 235);
+        background-color: transparent;
+        padding: 12px 32px;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(27, 34, 42);
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+    .dubai-launcher-wrapper .btn-outline-pill:hover {
+        background-color: rgba(233, 243, 251, 1);
+        border-color: rgb(38, 132, 211) !important;
+        color: rgb(27, 34, 42);
+    }
+    .dubai-launcher-wrapper .btn-pill {
+        border-radius: 9999px !important;
+    }
+    </style>
+</head>
+<body>
+
+    <section class="dubai-launcher-wrapper">
+    <!-- NAVBAR -->
+    <nav id="navbar" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: all 0.3s; background-color: transparent;">
+        <div class="section-container" style="display: flex; align-items: center; justify-content: space-between; height: 64px; transition: height 0.3s;" id="nav-inner">
+            <a href="#" style="display: flex; align-items: center;">
+                <img src="./images/zenduit-logo-blue.png" alt="ZenduIT" style="height: 28px;" id="nav-logo">
+            </a>
+
+            <div style="display: none; align-items: center; gap: 32px; font-size: 14px; font-weight: 500;" class="md-flex">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#industries" class="nav-link">Industries</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+            </div>
+
+            <a href="#cta" class="btn-primary-lg btn-pill" style="display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; background-color: rgb(38, 132, 211); padding: 10px 24px; font-size: 14px; font-weight: 500; color: rgb(255, 255, 255);">
+                Book a Demo
+            </a>
+        </div>
+    </nav>
+
+    <div style="min-height: 100vh; background-color: rgb(247, 248, 250);">
+        <!-- HERO -->
+        <section style="position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden;">
+            <div style="position: absolute; inset: 0;">
+                <img src="./images/hero-truck.jpg" alt="Fleet truck on highway" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgb(19, 26, 32), rgba(19, 26, 32, 0.92), rgba(19, 26, 32, 0.7));"></div>
+            </div>
+
+            <div class="section-container" style="position: relative; z-index: 10; width: 100%; padding-top: 112px; padding-bottom: 80px;">
+                <div style="display: grid; gap: 48px; align-items: center;" class="lg-grid-cols-2">
+                    <div class="animate-fade-up" style="text-align: start; max-width: 672px; margin-left: auto; margin-right: auto;" class="lg-text-left lg-mx-0">
+                        <p style="color: rgb(38, 132, 211); font-weight: 500; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px;">
+                            ELD Compliance Software & Solutions
+                        </p>
+
+                        <h1 style="font-size: 36px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 24px; color: rgb(242, 244, 247);" class="md-text-5xl lg-text-6xl">
+                            ELD Compliance Software for Regulated Trucking Fleets
+                        </h1>
+
+                        <p style="font-size: 18px; line-height: 1.625; margin-bottom: 40px; color: lightgray; max-width: 576px; margin-left: auto; margin-right: auto;" class="md-text-xl lg-mx-0">
+                            ZenTRACK ELD is FMCSA and Transport Canada-compliant ELD software that reduces violations, improves audit readiness, and keeps driver workflows simple.
+                        </p>
+
+                        <div style="display: flex; flex-direction: column; gap: 16px; justify-content: center;" class="sm-flex-row lg-justify-start">
+                            <a href="#cta" class="btn-primary-lg btn-pill" style="display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; background-color: rgb(38, 132, 211); padding: 16px 32px; font-size: 16px; font-weight: 500; color: rgb(255, 255, 255);">
+                                Book a Demo
+                            </a>
+                            <button class="btn-secondary btn-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                                Watch How It Works
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="animate-slide-in-right lg-flex" style="display: none; justify-content: center;">
+                        <video src="./images/hero-video.mp4" autoplay muted loop playsinline style="width: 100%; max-width: 512px; border-radius: 16px; box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5); object-fit: cover; aspect-ratio: 16/13;"></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL PROOF -->
+        <section class="section-padding" style="background-color: rgb(245, 247, 250);">
+            <div class="section-container">
+                <p class="reveal" style="text-align: center; color: rgb(101, 116, 134); font-weight: 500; margin-bottom: 48px; font-size: 18px;">
+                    Trusted by fleet operators that run on compliance
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px;" class="lg-grid-cols-4">
+                    <div class="reveal" style="text-align: center;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 16px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5h-7v6h2"/><path d="M21 12h-3V8h2a1 1 0 0 1 1 1z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                        </div>
+                        <p style="font-size: 30px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 4px; margin-top: 8px;" class="lg-text-4xl">500+</p>
+                        <p style="font-size: 14px; color: rgb(101, 116, 134); margin-top: 0;">Fleets managed</p>
+                    </div>
+                    <div class="reveal" style="text-align: center;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 16px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                        </div>
+                        <p style="font-size: 30px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 4px; margin-top: 8px;" class="lg-text-4xl">99.9%</p>
+                        <p style="font-size: 14px; color: rgb(101, 116, 134); margin-top: 0;">Compliance rate</p>
+                    </div>
+                    <div class="reveal" style="text-align: center;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 16px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                        </div>
+                        <p style="font-size: 30px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 4px; margin-top: 8px;" class="lg-text-4xl">40%</p>
+                        <p style="font-size: 14px; color: rgb(101, 116, 134); margin-top: 0;">Fewer violations</p>
+                    </div>
+                    <div class="reveal" style="text-align: center;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 16px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <p style="font-size: 30px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 4px; margin-top: 8px;" class="lg-text-4xl">&lt; 1 hr</p>
+                        <p style="font-size: 14px; color: rgb(101, 116, 134); margin-top: 0;">Setup time</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ICP BREAKDOWN -->
+        <section class="section-padding" style="background-color: rgb(247, 248, 250);">
+            <div class="section-container">
+                <div class="reveal" style="text-align: center; margin-bottom: 64px; max-width: 768px; margin-left: auto; margin-right: auto;">
+                    <h2 style="font-size: 30px; font-weight: 700; color: rgb(27, 34, 42);" class="lg-text-4xl">
+                        Simplify ELD Compliance Across Your Fleet
+                    </h2>
+                </div>
+
+                <div style="display: grid; gap: 32px;" class="md-grid-cols-3">
+                    <div class="card-elevated reveal" style="background-color: rgb(255, 255, 255); border-radius: 12px; border: 1px solid rgb(229, 231, 235); padding: 32px;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 20px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 style="font-size: 20px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 12px;">For Fleet Managers</h3>
+                        <p style="color: rgb(101, 116, 134); line-height: 1.625;">Compliance shouldn't mean constant follow-up. See HOS status, unverified logs, and ELD violations in real time, so you fix issues early, not after they escalate.</p>
+                    </div>
+                    <div class="card-elevated reveal" style="background-color: rgb(255, 255, 255); border-radius: 12px; border: 1px solid rgb(229, 231, 235); padding: 32px;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 20px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5h-7v6h2"/><path d="M21 12h-3V8h2a1 1 0 0 1 1 1z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                        </div>
+                        <h3 style="font-size: 20px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 12px;">For Drivers</h3>
+                        <p style="color: rgb(101, 116, 134); line-height: 1.625;">ELD logging shouldn't slow the day down. Fast, clear ELD logging and DVIR inspections in one app, so drivers stay moving and make fewer mistakes.</p>
+                    </div>
+                    <div class="card-elevated reveal" style="background-color: rgb(255, 255, 255); border-radius: 12px; border: 1px solid rgb(229, 231, 235); padding: 32px;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 20px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>
+                        </div>
+                        <h3 style="font-size: 20px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 12px;">For Compliance</h3>
+                        <p style="color: rgb(101, 116, 134); line-height: 1.625;">Audit prep shouldn't be a last-minute scramble. Logs, inspections, and compliance status in one place, so audit prep is routine and you stay inspection-ready.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHALLENGE -->
+        <section class="section-padding" style="background-color: rgb(31, 37, 45); color: rgb(242, 244, 247);">
+            <div class="section-container">
+                <div class="reveal" style="text-align: center; margin-bottom: 64px; max-width: 768px; margin-left: auto; margin-right: auto;">
+                    <h2 style="font-size: 30px; font-weight: 700; line-height: 1.2;" class="lg-text-4xl">
+                        ELD Management Software That Gives You Real Operational Control
+                    </h2>
+                    <p style="margin-top: 20px; font-size: 18px; opacity: 0.7; max-width: 672px; margin-left: auto; margin-right: auto;">
+                        Most fleets aren't confused by compliance — they're slowed down by the follow-up, the extra tools, and the cleanup that comes with them.
+                    </p>
+                </div>
+
+                <div class="flex-2-cols">
+                    <div class="reveal flex-card-50 challenge-card">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background-color: rgba(38, 132, 211, 0.1); margin-bottom: 16px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Driver resistance</h3>
+                        <p style="font-size: 14px; opacity: 0.6; line-height: 1.625;">Drivers don't want complicated apps. Too many steps (or switching apps) leads to frustration, bad logs, and missed details.</p>
+                    </div>
+                    <div class="reveal flex-card-50 challenge-card">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background-color: rgba(38, 132, 211, 0.1); margin-bottom: 16px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polygon points="2 12 12 17 22 12"/><polygon points="2 17 12 22 22 17"/></svg>
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">The audit scramble</h3>
+                        <p style="font-size: 14px; opacity: 0.6; line-height: 1.625;">When data is split across systems, teams end up chasing unverified logs and reconciling records right before an audit or inspection.</p>
+                    </div>
+                    <div class="reveal flex-card-50 challenge-card">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background-color: rgba(38, 132, 211, 0.1); margin-bottom: 16px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">The re-platforming trap</h3>
+                        <p style="font-size: 14px; opacity: 0.6; line-height: 1.625;">Fleets outgrow a basic ELD and get forced into ripping out hardware, buying a bigger telematics package, and retraining everyone.</p>
+                    </div>
+                    <div class="reveal flex-card-50 challenge-card">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background-color: rgba(38, 132, 211, 0.1); margin-bottom: 16px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Data outside core systems</h3>
+                        <p style="font-size: 14px; opacity: 0.6; line-height: 1.625;">When logs, inspections, and exceptions live elsewhere, visibility drops, and manual cleanup becomes the norm. That's where avoidable risk creeps in.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUE PROPS -->
+        <section id="features" class="section-padding" style="background-color: rgb(247, 248, 250);">
+            <div class="section-container">
+                <div class="reveal" style="text-align: center; margin-bottom: 64px; max-width: 768px; margin-left: auto; margin-right: auto;">
+                    <h2 style="font-size: 30px; font-weight: 700; color: rgb(27, 34, 42);" class="lg-text-4xl">
+                        Everything You Need to Run ELD Compliance Day to Day
+                    </h2>
+                    <p style="margin-top: 20px; font-size: 18px; color: rgb(101, 116, 134); max-width: 672px; margin-left: auto; margin-right: auto;">
+ZenTRACK ELD brings HOS, electronic logs, DVIR inspections, and compliance oversight into one system, so teams spend more time running the fleet.                    </p>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+                    <div class="flex-2-cols" style="flex: 1 1 500px;">
+                        <div class="card-elevated reveal flex-card-50" style="background-color: rgb(255, 255, 255); border-radius: 12px; border: 1px solid rgb(229, 231, 235); padding: 24px;">
+                            <div style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 16px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <h3 style="font-size: 16px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 8px;">HOS compliance and electronic logging</h3>
+                            <p style="font-size: 14px; color: rgb(101, 116, 134); line-height: 1.625;">Accurate hours-of-service (HOS) tracking and electronic logs that support clean records and consistent compliance.</p>
+                        </div>
+                        <div class="card-elevated reveal flex-card-50" style="background-color: rgb(255, 255, 255); border-radius: 12px; border: 1px solid rgb(229, 231, 235); padding: 24px;">
+                            <div style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 16px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                            <h3 style="font-size: 16px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 8px;">Centralized compliance oversight</h3>
+                            <p style="font-size: 14px; color: rgb(101, 116, 134); line-height: 1.625;">Manage unverified logs, exceptions, and compliance status in one place—so audit prep stays routine.</p>
+                        </div>
+                        <div class="card-elevated reveal flex-card-50" style="background-color: rgb(255, 255, 255); border-radius: 12px; border: 1px solid rgb(229, 231, 235); padding: 24px;">
+                            <div style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 16px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                            </div>
+                            <h3 style="font-size: 16px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 8px;">Driver workflows that reduce mistakes</h3>
+                            <p style="font-size: 14px; color: rgb(101, 116, 134); line-height: 1.625;">Clear steps for drivers, so logs and DVIR inspections get completed correctly the first time.</p>
+                        </div>
+                        <div class="card-elevated reveal flex-card-50" style="background-color: rgb(255, 255, 255); border-radius: 12px; border: 1px solid rgb(229, 231, 235); padding: 24px;">
+                            <div style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background-color: rgb(234, 243, 251); margin-bottom: 16px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgb(38, 132, 211);"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                            </div>
+                            <h3 style="font-size: 16px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 8px;">Device health and diagnostics</h3>
+                            <p style="font-size: 14px; color: rgb(101, 116, 134); line-height: 1.625;">Visibility into device and vehicle status, so you catch problems early and avoid gaps that create compliance risk.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal" style="flex: 1 1 300px; display: flex; justify-content: center;">
+                        <video src="./images/value-props-video.mp4" autoplay muted loop playsinline style="width: 100%; max-width: 320px; border-radius: 32px; box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); object-fit: cover; aspect-ratio: 9/16;"></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDUSTRY BREAKDOWN -->
+        <section id="industries" class="section-padding" style="background-color: rgb(245, 247, 250);">
+            <div class="section-container">
+                <div class="reveal" style="text-align: center; margin-bottom: 64px; max-width: 768px; margin-left: auto; margin-right: auto;">
+                    <p style="color: rgb(38, 132, 211); font-weight: 500; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px;">Industry Breakdown</p>
+                    <h2 style="font-size: 30px; font-weight: 700; color: rgb(27, 34, 42);" class="lg-text-4xl">
+                        Built for DOT-Regulated Fleets Where Downtime Costs Real Money
+                    </h2>
+                    <p style="margin-top: 20px; font-size: 18px; color: rgb(101, 116, 134); max-width: 672px; margin-left: auto; margin-right: auto;">
+ZenTRACK ELD supports fleets that need reliable ELD compliance, clean documentation, and driver workflows that get followed.
+
+
+                    </p>
+                </div>
+
+                <div style="display: grid; gap: 40px; align-items: center;" class="lg-grid-cols-2">
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                        <button class="industry-tab reveal is-active" data-index="0">
+                            <div class="tab-icon-bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5h-7v6h2"/><path d="M21 12h-3V8h2a1 1 0 0 1 1 1z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="tab-title">Long-haul & regional trucking</h3>
+                                <p class="tab-desc">Stay ready for frequent inspections and changing schedules with clear HOS visibility and dependable electronic logs.</p>
+                            </div>
+                        </button>
+                        <button class="industry-tab reveal" data-index="1">
+                            <div class="tab-icon-bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="tab-title">Logistics, distribution & 3PL</h3>
+                                <p class="tab-desc">Keep compliance consistent across terminals so log issues don't disrupt commitments, routes, or SLAs.</p>
+                            </div>
+                        </button>
+                        <button class="industry-tab reveal" data-index="2">
+                            <div class="tab-icon-bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2Z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M4 15v-3a8 8 0 0 1 16 0v3"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="tab-title">Construction & mixed-use fleets</h3>
+                                <p class="tab-desc">Reduce errors when drivers switch vehicles or job sites, keep logs and inspections simple and consistent all day.</p>
+                            </div>
+                        </button>
+                        <button class="industry-tab reveal" data-index="3">
+                            <div class="tab-icon-bg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="tab-title">Utilities & public sector</h3>
+                                <p class="tab-desc">Maintain audit-ready documentation and accountability across mixed duty cycles and asset types.</p>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Image (Tablet Mockup) -->
+                    <div class="reveal" style="position: relative; border-radius: 24px; background-color: rgb(31, 37, 45); padding: 20px; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; box-shadow: 0 30px 60px -12px rgba(0,0,0,0.4), 0 18px 36px -18px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="position: absolute; inset: 0; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); pointer-events: none;"></div>
+                        <div style="width: 100%; height: 100%; overflow: hidden; border-radius: 4px; background-color: rgb(15, 20, 28);">
+                            <img id="industry-image" src="./images/industry-breakdown-1st.png" alt="Long-haul & regional trucking" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease-out;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY SWITCH -->
+        <section style="position: relative; overflow: hidden; background-color: rgb(31, 37, 45);" class="section-padding">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; border-radius: 50%; opacity: 0.15; filter: blur(120px); pointer-events: none; background-color: rgb(38, 132, 211);"></div>
+
+            <div class="section-container" style="position: relative; z-index: 10;">
+                <div class="reveal" style="text-align: center; margin-bottom: 40px; max-width: 768px; margin-left: auto; margin-right: auto;">
+                    <h2 style="font-size: 30px; font-weight: 700; color: rgb(255, 255, 255);" class="lg-text-5xl">
+                        Why Fleets Switch to <span class="gradient-text">ZenTrack ELD</span>
+                    </h2>
+                    <p style="margin-top: 16px; font-size: 18px; color: rgb(101, 116, 134);">
+                        Most ELDs focus on the device. ZenTrack ELD focuses on what happens every day after install.
+                    </p>
+                </div>
+
+                <!-- Carousel -->
+                <div class="carousel-stage reveal" style="position: relative; margin-bottom: 32px;">
+                    <div style="position: relative; width: 100%; max-width: 896px; margin-left: auto; margin-right: auto; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden;">
+                        <div style="position: absolute; inset: 0; border-radius: 16px; background-color: rgb(16, 20, 25); border: 1px solid rgba(38, 132, 211, 0.1);"></div>
+                        
+                        <!-- Previews -->
+                        <div style="position: absolute; inset: 0; pointer-events: none;">
+                            <img id="carousel-prev-ghost" src="./images/carousel-growth.png" alt="" class="floating" style="position: absolute; left: -8%; top: 50%; transform: translateY(-50%); width: 30%; opacity: 0.1; filter: blur(2px);">
+                            <img id="carousel-next-ghost" src="./images/carousel-oversight.png" alt="" class="floating" style="position: absolute; right: -8%; top: 50%; transform: translateY(-50%); width: 30%; opacity: 0.1; filter: blur(2px); animation-delay: 1s;">
+                        </div>
+
+                        <!-- Main Image -->
+                        <div id="carousel-main-container" class="carousel-item" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 32px;" class="lg-p-14">
+                            <img id="carousel-main-image" src="./images/carousel-platform.png" alt="One platform" class="carousel-image" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 25px 50px rgba(0,0,0,0.5));">
+                        </div>
+
+                        <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 75%; height: 25%; filter: blur(60px); opacity: 0.25; pointer-events: none; background-color: rgb(38, 132, 211);"></div>
+
+                        <button id="carousel-prev" class="carousel-btn" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button id="carousel-next" class="carousel-btn" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carousel Tabs -->
+                <div style="max-width: 1024px; margin-left: auto; margin-right: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;" class="md-grid-cols-5">
+                    <button class="carousel-tab reveal is-active" data-index="0" style="position: relative; text-align: left; padding: 16px; border-radius: 12px; transition: all 0.3s; border: 1px solid transparent; background-color: rgb(27, 36, 44);">
+                        <div class="tab-icon-bg" style="margin-bottom: 12px; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background-color: rgb(39, 51, 63);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon" style="color: rgb(101, 116, 134);"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polygon points="2 12 12 17 22 12"/><polygon points="2 17 12 22 22 17"/></svg>
+                        </div>
+                        <h3 class="tab-title" style="font-weight: 700; font-size: 14px; line-height: 1.25; margin-bottom: 4px; color: rgb(101, 116, 134);">One platform, not a bolt-on ELD</h3>
+                        <p class="tab-desc" style="font-size: 12px; line-height: 1.5; color: rgba(88, 100, 116, 1);" class="md-block">Compliance, safety, diagnostics, and assets in one system, less tool sprawl.</p>
+                        <div style="margin-top: 12px; height: 3px; width: 100%; border-radius: 9999px; background-color: rgb(43, 56, 70); overflow: hidden;">
+                            <div class="progress-bar-fill" style="height: 100%; width: 0%; border-radius: 9999px; background-color: rgb(38, 132, 211);"></div>
+                        </div>
+                    </button>
+                    <button class="carousel-tab reveal" data-index="1" style="position: relative; text-align: left; padding: 16px; border-radius: 12px; transition: all 0.3s; border: 1px solid transparent; background-color: rgb(27, 36, 44);">
+                        <div class="tab-icon-bg" style="margin-bottom: 12px; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background-color: rgb(39, 51, 63);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon" style="color: rgb(101, 116, 134);"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <h3 class="tab-title" style="font-weight: 700; font-size: 14px; line-height: 1.25; margin-bottom: 4px; color: rgb(101, 116, 134);">Better day-to-day oversight</h3>
+                        <p class="tab-desc" style="font-size: 12px; line-height: 1.5; color: rgba(88, 100, 116, 1);" class="md-block">Dedicated views for HOS, unverified logs, and violations so issues don't pile up.</p>
+                        <div style="margin-top: 12px; height: 3px; width: 100%; border-radius: 9999px; background-color: rgb(43, 56, 70); overflow: hidden;">
+                            <div class="progress-bar-fill" style="height: 100%; width: 0%; border-radius: 9999px; background-color: rgb(38, 132, 211);"></div>
+                        </div>
+                    </button>
+                    <button class="carousel-tab reveal" data-index="2" style="position: relative; text-align: left; padding: 16px; border-radius: 12px; transition: all 0.3s; border: 1px solid transparent; background-color: rgb(27, 36, 44);">
+                        <div class="tab-icon-bg" style="margin-bottom: 12px; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background-color: rgb(39, 51, 63);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon" style="color: rgb(101, 116, 134);"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                        </div>
+                        <h3 class="tab-title" style="font-weight: 700; font-size: 14px; line-height: 1.25; margin-bottom: 4px; color: rgb(101, 116, 134);">Driver-friendly workflows</h3>
+                        <p class="tab-desc" style="font-size: 12px; line-height: 1.5; color: rgba(88, 100, 116, 1);" class="md-block">Clear ELD logging and DVIR flows that reduce missed steps and rework.</p>
+                        <div style="margin-top: 12px; height: 3px; width: 100%; border-radius: 9999px; background-color: rgb(43, 56, 70); overflow: hidden;">
+                            <div class="progress-bar-fill" style="height: 100%; width: 0%; border-radius: 9999px; background-color: rgb(38, 132, 211);"></div>
+                        </div>
+                    </button>
+                    <button class="carousel-tab reveal" data-index="3" style="position: relative; text-align: left; padding: 16px; border-radius: 12px; transition: all 0.3s; border: 1px solid transparent; background-color: rgb(27, 36, 44);">
+                        <div class="tab-icon-bg" style="margin-bottom: 12px; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background-color: rgb(39, 51, 63);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon" style="color: rgb(101, 116, 134);"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                        </div>
+                        <h3 class="tab-title" style="font-weight: 700; font-size: 14px; line-height: 1.25; margin-bottom: 4px; color: rgb(101, 116, 134);">One set of fleet records</h3>
+                        <p class="tab-desc" style="font-size: 12px; line-height: 1.5; color: rgba(88, 100, 116, 1);" class="md-block">Drivers, vehicles, trailers, logs, and diagnostics stay in sync across the platform.</p>
+                        <div style="margin-top: 12px; height: 3px; width: 100%; border-radius: 9999px; background-color: rgb(43, 56, 70); overflow: hidden;">
+                            <div class="progress-bar-fill" style="height: 100%; width: 0%; border-radius: 9999px; background-color: rgb(38, 132, 211);"></div>
+                        </div>
+                    </button>
+                    <button class="carousel-tab reveal" data-index="4" style="position: relative; text-align: left; padding: 16px; border-radius: 12px; transition: all 0.3s; border: 1px solid transparent; background-color: rgb(27, 36, 44);">
+                        <div class="tab-icon-bg" style="margin-bottom: 12px; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background-color: rgb(39, 51, 63);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon" style="color: rgb(101, 116, 134);"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        </div>
+                        <h3 class="tab-title" style="font-weight: 700; font-size: 14px; line-height: 1.25; margin-bottom: 4px; color: rgb(101, 116, 134);">Grows with your fleet</h3>
+                        <p class="tab-desc" style="font-size: 12px; line-height: 1.5; color: rgba(88, 100, 116, 1);" class="md-block">Start with ELD, then add visibility, safety, and analytics without switching tools.</p>
+                        <div style="margin-top: 12px; height: 3px; width: 100%; border-radius: 9999px; background-color: rgb(43, 56, 70); overflow: hidden;">
+                            <div class="progress-bar-fill" style="height: 100%; width: 0%; border-radius: 9999px; background-color: rgb(38, 132, 211);"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- BUILD SETUP -->
+        <section style="background-color: rgb(255, 255, 255);" class="section-padding">
+            <div class="section-container">
+                <div class="reveal" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 64px;">
+                    <div style="max-width: 672px;">
+                        <h2 style="font-size: 30px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 20px;" class="lg-text-4xl">
+                            Build the setup your fleet runs on
+                        </h2>
+                        <p style="font-size: 18px; color: rgb(101, 116, 134); line-height: 1.625;">
+                            ZenTRACK ELD works even better when it's connected to the tools teams use every day. Add safety, maintenance, forms, and driver tools without juggling extra systems.
+                        </p>
+                    </div>
+                    <a href="#" class="btn-outline-pill" style="width: auto; display: inline-flex; align-items: center; justify-content: center; padding: 12px 32px; min-width: 140px;">
+                        Get Started
+                    </a>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+                    <!-- Safety -->
+                    <div class="card-elevated reveal" style="flex: 1 1 260px; background-color: rgb(255, 255, 255); border: 1px solid rgb(229, 231, 235); border-radius: 12px;  display: flex; flex-direction: column;">
+                        <div style="width: 100%; margin-bottom: 24px;">
+                            <img src="./images/placeholder.png" alt="Safety Feature" style="width: 100%; height: auto; border-top-left-radius: 12px; border-top-right-radius: 12px; display: block;">
+                        </div>
+                        <div style="padding: 24px;">
+                            <h3 style="font-size: 18px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 12px;">Safety</h3>
+                            <p style="font-size: 14px; color: rgb(101, 116, 134); line-height: 1.625; flex-grow: 1;">
+                                Scoring and gamification, automated and manual coaching, driver calls for risk/violations, and forms that can impact safety scoring.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Maintenance -->
+                    <div class="card-elevated reveal" style="flex: 1 1 260px; background-color: rgb(255, 255, 255); border: 1px solid rgb(229, 231, 235); border-radius: 12px; display: flex; flex-direction: column;">
+                        <div style="width: 100%; margin-bottom: 24px;">
+                            <img src="./images/placeholder.png" alt="Maintenance Feature" style="width: 100%; height: auto; border-top-left-radius: 12px; border-top-right-radius: 12px; display: block;">
+                        </div>
+                        <div style="padding: 24px;">
+                            <h3 style="font-size: 18px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 12px;">Maintenance</h3>
+                            <p style="font-size: 14px; color: rgb(101, 116, 134); line-height: 1.625; flex-grow: 1;">
+                                Custom DVIR inspections that can auto-create maintenance requests, plus simple forms for on-the-job issues (accidents, flat tires, and more).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Forms & Workflows -->
+                    <div class="card-elevated reveal" style="flex: 1 1 260px; background-color: rgb(255, 255, 255); border: 1px solid rgb(229, 231, 235); border-radius: 12px; display: flex; flex-direction: column;">
+                        <div style="width: 100%; margin-bottom: 24px;">
+                            <img src="./images/placeholder.png" alt="Forms & Workflows Feature" style="width: 100%; height: auto; border-top-left-radius: 12px; border-top-right-radius: 12px; display: block;">
+                        </div>
+                        <div style="padding: 24px;">
+                            <h3 style="font-size: 18px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 12px;">Forms & Workflows</h3>
+                            <p style="font-size: 14px; color: rgb(101, 116, 134); line-height: 1.625; flex-grow: 1;">
+                                Custom forms for POD and BOL, with rule-based automation (zones, safety incidents, fuel, idling, and more).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Driver App + Add-ons -->
+                    <div class="card-elevated reveal" style="flex: 1 1 260px; background-color: rgb(255, 255, 255); border: 1px solid rgb(229, 231, 235); border-radius: 12px;  display: flex; flex-direction: column;">
+                        <div style="width: 100%; margin-bottom: 24px;">
+                            <img src="./images/placeholder.png" alt="Driver App Feature" style="width: 100%; height: auto; border-top-left-radius: 12px; border-top-right-radius: 12px; display: block;">
+                        </div>
+                        <div style="padding: 24px;">
+                            <h3 style="font-size: 18px; font-weight: 700; color: rgb(27, 34, 42); margin-bottom: 12px;">Driver App + Add-ons</h3>
+                            <p style="font-size: 14px; color: rgb(101, 116, 134); line-height: 1.625; flex-grow: 1;">
+                                Custom check-in/check-out flows, track DVIR time and checklist steps, and optional add-ons like Timecard and Learn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section id="cta" class="section-padding" style="background-color: rgb(31, 37, 45); color: rgb(242, 244, 247);">
+            <div class="section-container">
+                <div class="reveal" style="max-width: 768px; margin-left: auto; margin-right: auto; text-align: center;">
+                    <h2 style="font-size: 30px; font-weight: 700; margin-bottom: 24px;" class="lg-text-5xl">
+                        Ready for a Better ELD Setup?
+                    </h2>
+                    <p style="font-size: 18px; opacity: 0.7; margin-bottom: 40px; max-width: 576px; margin-left: auto; margin-right: auto; line-height: 1.625;">
+                        We'll recommend the right setup for your fleet size, hardware and workflow, then show you exactly how it works.
+                    </p>
+
+                    <div style="display: flex; flex-direction: column; gap: 16px; justify-content: center;" class="sm-flex-row">
+                        <a href="#" class="btn-primary-lg btn-pill">
+                            Book a Demo
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                        <a href="#" class="btn-secondary btn-pill">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+                            Talk to an Expert
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    </section>
+
+
+    <script>
+        // Navbar scroll behavior
+        const navbar = document.getElementById('navbar');
+        const navInner = document.getElementById('nav-inner');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('nav-scrolled');
+                navInner.style.height = '64px';
+            } else {
+                navbar.classList.remove('nav-scrolled');
+                navInner.style.height = '80px';
+            }
+        });
+
+        // Reveal animations on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Industry Tabs
+        const industryTabs = document.querySelectorAll('.industry-tab');
+        const industryImage = document.getElementById('industry-image');
+        const industries = [
+            { title: "Long-haul & regional trucking", image: "./images/industry-breakdown-1st.png" },
+            { title: "Logistics, distribution & 3PL", image: "./images/industry-logistics.png" },
+            { title: "Construction & mixed-use fleets", image: "./images/industry-construction.png" },
+            { title: "Utilities & public sector", image: "./images/industry-utilities.png" }
+        ];
+
+        industryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const index = parseInt(tab.dataset.index);
+                industryTabs.forEach(t => t.classList.remove('is-active'));
+                tab.classList.add('is-active');
+                
+                industryImage.style.opacity = '0';
+                industryImage.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    industryImage.src = industries[index].image;
+                    industryImage.alt = industries[index].title;
+                    industryImage.style.opacity = '1';
+                    industryImage.style.transform = 'scale(1)';
+                }, 300);
+            });
+        });
+
+        // WhySwitch Carousel
+        const carouselTabs = document.querySelectorAll('.carousel-tab');
+        const carouselMainImage = document.getElementById('carousel-main-image');
+        const carouselPrevGhost = document.getElementById('carousel-prev-ghost');
+        const carouselNextGhost = document.getElementById('carousel-next-ghost');
+        const carouselPrevBtn = document.getElementById('carousel-prev');
+        const carouselNextBtn = document.getElementById('carousel-next');
+        const carouselProgressBars = document.querySelectorAll('.progress-bar-fill');
+        
+        const slides = [
+            { title: "One platform, not a bolt-on ELD", image: "./images/carousel-platform.png" },
+            { title: "Better day-to-day oversight", image: "./images/carousel-oversight.png" },
+            { title: "Driver-friendly workflows", image: "./images/carousel-driver.png" },
+            { title: "One set of fleet records", image: "./images/carousel-records.png" },
+            { title: "Grows with your fleet", image: "./images/carousel-growth.png" }
+        ];
+
+        let activeSlide = 0;
+        let progress = 0;
+        const autoDuration = 6000;
+        const intervalTime = 50;
+
+        function updateCarousel(index) {
+            activeSlide = index;
+            progress = 0;
+            
+            carouselTabs.forEach((tab, i) => {
+                tab.classList.toggle('is-active', i === activeSlide);
+                carouselProgressBars[i].style.width = '0%';
+            });
+
+            // Main image animation
+            carouselMainImage.style.opacity = '0';
+            carouselMainImage.style.transform = 'scale(0.8) rotateY(20deg)';
+            
+            setTimeout(() => {
+                carouselMainImage.src = slides[activeSlide].image;
+                carouselMainImage.alt = slides[activeSlide].title;
+                carouselMainImage.style.opacity = '1';
+                carouselMainImage.style.transform = 'scale(1) rotateY(0deg)';
+                
+                // Update ghosts
+                const prevIndex = (activeSlide - 1 + slides.length) % slides.length;
+                const nextIndex = (activeSlide + 1) % slides.length;
+                carouselPrevGhost.src = slides[prevIndex].image;
+                carouselNextGhost.src = slides[nextIndex].image;
+            }, 300);
+        }
+
+        function nextSlide() {
+            updateCarousel((activeSlide + 1) % slides.length);
+        }
+
+        function prevSlide() {
+            updateCarousel((activeSlide - 1 + slides.length) % slides.length);
+        }
+
+        carouselNextBtn.addEventListener('click', nextSlide);
+        carouselPrevBtn.addEventListener('click', prevSlide);
+
+        carouselTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                updateCarousel(parseInt(tab.dataset.index));
+            });
+        });
+
+        // Auto-advance
+        setInterval(() => {
+            progress += (intervalTime / autoDuration) * 100;
+            if (progress >= 100) {
+                nextSlide();
+            } else {
+                carouselProgressBars[activeSlide].style.width = `${progress}%`;
+            }
+        }, intervalTime);
+
+    </script>
+</body>
+</html>

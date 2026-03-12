@@ -1,0 +1,10 @@
+{
+	"extends": [ "@wordpress/stylelint-config/scss" ],
+	"rules": {
+		"at-rule-empty-line-before": null,
+		"color-hex-length": null,
+		"no-duplicate-selectors": null,
+		"rule-empty-line-before": null,
+		"scss/load-partial-extension": null
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "swordhealthorg/amirpress-landing",
+	"version": "0.1.0",
+	"title": "Amirpress Landing",
+	"category": "swordhealth-org-blocks",
+	"description": "Converted from swordhealth HTML blocks.",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full" ]
+	},
+	"textdomain": "swordhealth-org",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,1317 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>Lovable App</title>
+    <style>
+.amirpress-wrapper {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(213 30% 12%);
+  --color-primary: hsl(207 90% 54%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(210 40% 96%);
+  --color-secondary-foreground: hsl(213 30% 12%);
+  --color-muted: hsl(210 20% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(213 30% 12%);
+  --color-border: hsl(214 32% 91%);
+  --color-cyan-accent: hsl(187 80% 50%);
+  --color-hero-bg-start: #114873;
+  --color-hero-bg-end: #00b4ff;
+  --shadow-lg: 0 10px 25px rgba(15, 40, 70, 0.25);
+  --shadow-xl: 0 16px 40px rgba(15, 40, 70, 0.35);
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.amirpress-wrapper *,
+.amirpress-wrapper *::before,
+.amirpress-wrapper *::after {
+  box-sizing: border-box;
+}
+
+.amirpress-wrapper h1,
+.amirpress-wrapper h2,
+.amirpress-wrapper h3,
+.amirpress-wrapper h4 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.amirpress-wrapper p {
+  margin: 0;
+}
+
+.amirpress-wrapper img {
+  display: block;
+  max-width: 100%;
+}
+
+.amirpress-wrapper button {
+  font-family: inherit;
+}
+
+.amirpress-wrapper .ap-section {
+  padding: 64px 24px;
+}
+
+.amirpress-wrapper .ap-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .amirpress-wrapper .ap-section {
+    padding: 72px 32px;
+  }
+}
+
+/* Hero */
+.amirpress-wrapper .ap-hero {
+  background: linear-gradient(104deg, var(--color-hero-bg-start) 3.13%, var(--color-hero-bg-end) 98.34%);
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  color: var(--color-primary-foreground);
+}
+
+.amirpress-wrapper .ap-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.amirpress-wrapper .ap-hero-content {
+  flex: 1;
+}
+
+.amirpress-wrapper .ap-hero-title {
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--color-primary-foreground);
+}
+
+.amirpress-wrapper .ap-hero-subtitle {
+  margin-top: 16px;
+  max-width: 448px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.amirpress-wrapper .ap-hero-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.amirpress-wrapper .ap-btn {
+  display: inline-flex;
+  align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 15.2px;
+  cursor: pointer;
+  border: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.amirpress-wrapper .ap-btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  box-shadow: none;
+}
+
+.amirpress-wrapper .ap-btn-primary:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+  box-shadow: 0 18px 45px rgba(0, 180, 255, 0.3);
+}
+
+.amirpress-wrapper .ap-btn-primary:active {
+  transform: scale(0.95);
+}
+
+.amirpress-wrapper .ap-btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary-foreground);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+}
+
+.amirpress-wrapper .ap-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.amirpress-wrapper .ap-btn-secondary:active {
+  transform: scale(0.95);
+}
+
+.amirpress-wrapper .ap-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.amirpress-wrapper .ap-icon-arrow-down,
+.amirpress-wrapper .ap-icon-arrow-right-small {
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.amirpress-wrapper .ap-hero-arrow {
+  transition: transform 0.3s ease;
+}
+
+.amirpress-wrapper .ap-btn-secondary:hover .ap-hero-arrow {
+  transform: rotate(90deg);
+}
+
+.amirpress-wrapper .ap-hero-media {
+  flex: 1;
+  max-width: 448px;
+}
+
+.amirpress-wrapper .ap-hero-image-frame {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 640px) {
+  .amirpress-wrapper .ap-hero-actions {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .amirpress-wrapper .ap-hero-inner {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .amirpress-wrapper .ap-hero-title {
+    font-size: 48px;
+  }
+}
+
+/* Solutions */
+.amirpress-wrapper .ap-solutions {
+  text-align: center;
+  background-color: var(--color-background);
+}
+
+.amirpress-wrapper .ap-section-title {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.amirpress-wrapper .ap-section-title span {
+  color: var(--color-foreground);
+}
+
+.amirpress-wrapper .ap-section-subtitle {
+  max-width: 640px;
+  margin: 0 auto 48px auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-muted-foreground);
+}
+
+.amirpress-wrapper .ap-solutions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.amirpress-wrapper .ap-solution-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.amirpress-wrapper .ap-solution-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background-color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+  box-shadow: none;
+}
+
+.amirpress-wrapper .ap-solution-icon-inner {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+}
+
+.amirpress-wrapper .ap-solution-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15.2px;
+  font-weight: 500;
+  color: var(--color-primary);
+  transition:
+    gap 0.2s ease,
+    transform 0.2s ease;
+}
+
+.amirpress-wrapper .ap-solution-card:hover .ap-solution-icon {
+  background-color: rgba(0, 180, 255, 0.08);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.amirpress-wrapper .ap-solution-card:active .ap-solution-icon {
+  transform: scale(0.96);
+}
+
+.amirpress-wrapper .ap-solution-card:hover .ap-solution-label {
+  gap: 8px;
+}
+
+.amirpress-wrapper .ap-icon-arrow-right-small {
+  width: 14.4px;
+  height: 14.4px;
+  transition: transform 0.3s ease;
+}
+
+.amirpress-wrapper .ap-solution-card:hover .ap-icon-arrow-right-small {
+  transform: rotate(90deg);
+}
+
+/* Case Study */
+.amirpress-wrapper .ap-case {
+  background: linear-gradient(180deg, hsl(199 90% 95%) 0%, hsl(0 0% 100%) 100%);
+}
+
+.amirpress-wrapper .ap-case-header {
+  max-width: 576px;
+  margin: 0 auto 48px auto;
+}
+
+.amirpress-wrapper .ap-tabs-shell {
+  max-width: 672px;
+  margin: 0 auto 48px auto;
+  position: relative;
+}
+
+.amirpress-wrapper .ap-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    hsl(207 90% 54%) 0%,
+    hsl(213 30% 15%) 30%,
+    hsl(213 30% 15%) 100%
+  );
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.amirpress-wrapper .ap-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.amirpress-wrapper .ap-tab-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(24, 119, 242, 0.8);
+  color: var(--color-primary-foreground);
+  cursor: pointer;
+  padding: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.amirpress-wrapper .ap-tab-nav:hover {
+  background-color: var(--color-primary);
+}
+
+.amirpress-wrapper .ap-tab-nav-left {
+  left: 0;
+}
+
+.amirpress-wrapper .ap-tab-nav-right {
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .amirpress-wrapper .ap-tab-nav {
+    display: none;
+  }
+}
+
+.amirpress-wrapper .ap-tab {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6.4px;
+  padding: 12px 36px;
+  border-radius: 999px;
+  font-size: 13.6px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.amirpress-wrapper .ap-tab:not(.ap-tab--active):hover {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(0.98);
+}
+
+.amirpress-wrapper .ap-tab:not(.ap-tab--active):active {
+  transform: scale(0.95);
+}
+
+.amirpress-wrapper .ap-tab--active {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  box-shadow: 0 12px 30px rgba(0, 180, 255, 0.35);
+  transform: scale(1.05);
+}
+
+.amirpress-wrapper .ap-tab-icon-dot {
+  width: 14.4px;
+  height: 14.4px;
+  border-radius: 4px;
+  border: 2px solid var(--color-primary-foreground);
+}
+
+.amirpress-wrapper .ap-case-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.amirpress-wrapper .ap-case-sidebar {
+  flex-shrink: 0;
+}
+
+.amirpress-wrapper .ap-case-sidebar-inner {
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(15, 40, 70, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.amirpress-wrapper .ap-case-logo {
+  font-size: 20px;
+  letter-spacing: 1.92px;
+}
+
+.amirpress-wrapper .ap-case-logo span {
+  display: block;
+  font-size: 13.6px;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: var(--color-muted-foreground);
+}
+
+.amirpress-wrapper .ap-case-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 15.68px;
+}
+
+.amirpress-wrapper .ap-case-meta-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.amirpress-wrapper .ap-case-meta-icon {
+  margin-top: 1.6px;
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amirpress-wrapper .ap-case-meta-label {
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.amirpress-wrapper .ap-case-meta-text {
+  color: var(--color-muted-foreground);
+}
+
+.amirpress-wrapper .ap-case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.amirpress-wrapper .ap-case-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6.4px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--color-primary);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  background: transparent;
+}
+
+.amirpress-wrapper .ap-case-tag::before {
+  content: none;
+}
+
+.amirpress-wrapper .ap-case-tag:hover {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.amirpress-wrapper .ap-case-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.amirpress-wrapper .ap-case-block-title {
+  font-size: 24px;
+  margin-bottom: 14.4px;
+}
+
+.amirpress-wrapper .ap-case-paragraph {
+  font-size: 15.68px;
+  line-height: 1.7;
+  color: var(--color-muted-foreground);
+}
+
+.amirpress-wrapper .ap-case-stat {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.amirpress-wrapper .ap-case-stat-bar {
+  width: 4px;
+  height: 64px;
+  border-radius: 999px;
+  background-color: var(--color-primary);
+}
+
+.amirpress-wrapper .ap-case-stat-number {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.amirpress-wrapper .ap-case-stat-caption {
+  font-size: 13.6px;
+  color: var(--color-muted-foreground);
+}
+
+.amirpress-wrapper .ap-testimonial {
+  margin-top: 28px;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, hsl(199 70% 30%) 0%, hsl(207 60% 40%) 100%);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.amirpress-wrapper .ap-testimonial-quote-mark {
+  font-size: 32px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 16px;
+}
+
+.amirpress-wrapper .ap-testimonial-text {
+  font-size: 15.68px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.amirpress-wrapper .ap-testimonial-name {
+  font-weight: 600;
+  color: var(--color-cyan-accent);
+}
+
+.amirpress-wrapper .ap-testimonial-role {
+  font-size: 13.6px;
+  color: rgba(102, 231, 235, 0.8);
+}
+
+@media (min-width: 768px) {
+  .amirpress-wrapper .ap-case-layout {
+    flex-direction: row;
+  }
+
+  .amirpress-wrapper .ap-case-sidebar-inner {
+    position: sticky;
+    top: 90px;
+  }
+
+  .amirpress-wrapper .ap-case-sidebar {
+    width: 256px;
+  }
+}
+
+/* Bottom CTA */
+.amirpress-wrapper .ap-cta {
+  background-color: var(--color-background);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.amirpress-wrapper .ap-cta-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+
+.amirpress-wrapper .ap-cta-text {
+  flex: 1;
+}
+
+.amirpress-wrapper .ap-cta-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.8px;
+  font-weight: 600;
+  letter-spacing: 2.88px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.amirpress-wrapper .ap-cta-label-dot {
+  width: 14.4px;
+  height: 14.4px;
+  color: var(--color-primary);
+}
+
+.amirpress-wrapper .ap-cta-title {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.amirpress-wrapper .ap-cta-body {
+  font-size: 15.68px;
+  line-height: 1.7;
+  color: var(--color-muted-foreground);
+  margin-bottom: 20px;
+}
+
+.amirpress-wrapper .ap-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10.4px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 15.2px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.amirpress-wrapper .ap-cta-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.amirpress-wrapper .ap-cta-button:active {
+  transform: scale(0.95);
+}
+
+.amirpress-wrapper .ap-cta-media {
+  flex: 1;
+  width: 100%;
+}
+
+.amirpress-wrapper .ap-cta-image-frame {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 768px) {
+  .amirpress-wrapper .ap-cta-inner {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+</style>
+</head>
+
+  <body>
+<div class="amirpress-wrapper">
+  <!-- Hero -->
+  <section class="ap-section ap-hero">
+    <div class="ap-container">
+      <div class="ap-hero-inner">
+        <div class="ap-hero-content">
+          <h1 class="ap-hero-title">
+            How [Company Name] increased on-time delivery by 95% and saved thousands
+          </h1>
+          <p class="ap-hero-subtitle">
+            With Zenduit's AI-powered [solution name], [Company Name] improved safety, stayed compliant, and increased
+            on-time delivery.
+          </p>
+          <div class="ap-hero-actions">
+            <button class="ap-btn ap-btn-primary" type="button">
+              Book A Demo
+            </button>
+            <button class="ap-btn ap-btn-secondary" type="button">
+              <span>See Story</span>
+              <svg class="ap-icon ap-icon-arrow-down ap-hero-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 4v16m0 0-6-6m6 6 6-6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="ap-hero-media">
+          <div class="ap-hero-image-frame">
+            <img src="./assets/hero-trucks.jpg" alt="Fleet of trucks">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section class="ap-section ap-solutions">
+    <div class="ap-container">
+      <h2 class="ap-section-title">
+        <span>Powered by a Trusted Suite of Solutions</span>
+      </h2>
+      <p class="ap-section-subtitle">
+        Zenduit – Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.
+      </p>
+      <div class="ap-solutions-grid">
+        <div class="ap-solution-card">
+          <div class="ap-solution-icon">
+            <svg
+              class="ap-solution-icon-inner"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16.5 9.4 7.5 4.21"></path>
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
+              ></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+          </div>
+          <div class="ap-solution-label">
+            <span>Asset Management</span>
+            <svg class="ap-icon ap-icon-arrow-right-small" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m0 0-5-5m5 5-5 5" />
+            </svg>
+          </div>
+        </div>
+        <div class="ap-solution-card">
+          <div class="ap-solution-icon">
+            <svg
+              class="ap-solution-icon-inner"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16.5 9.4 7.5 4.21"></path>
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
+              ></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+          </div>
+          <div class="ap-solution-label">
+            <span>Asset Management</span>
+            <svg class="ap-icon ap-icon-arrow-right-small" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m0 0-5-5m5 5-5 5" />
+            </svg>
+          </div>
+        </div>
+        <div class="ap-solution-card">
+          <div class="ap-solution-icon">
+            <svg
+              class="ap-solution-icon-inner"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16.5 9.4 7.5 4.21"></path>
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
+              ></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+          </div>
+          <div class="ap-solution-label">
+            <span>Asset Management</span>
+            <svg class="ap-icon ap-icon-arrow-right-small" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m0 0-5-5m5 5-5 5" />
+            </svg>
+          </div>
+        </div>
+        <div class="ap-solution-card">
+          <div class="ap-solution-icon">
+            <svg
+              class="ap-solution-icon-inner"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16.5 9.4 7.5 4.21"></path>
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
+              ></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+          </div>
+          <div class="ap-solution-label">
+            <span>Asset Management</span>
+            <svg class="ap-icon ap-icon-arrow-right-small" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14m0 0-5-5m5 5-5 5" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study -->
+  <section class="ap-section ap-case">
+    <div class="ap-container">
+      <div class="ap-tabs-shell">
+        <button class="ap-tab-nav ap-tab-nav-left" type="button" aria-label="Scroll tabs left">
+          <svg
+            class="ap-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <div class="ap-tabs">
+          <button class="ap-tab ap-tab--active" type="button">
+            <svg
+              class="ap-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+            </svg>
+            <span>Overview</span>
+          </button>
+          <button class="ap-tab" type="button">
+            <svg
+              class="ap-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+              ></path>
+            </svg>
+            <span>Challenge</span>
+          </button>
+          <button class="ap-tab" type="button">
+            <svg
+              class="ap-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16.5 9.4 7.5 4.21"></path>
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
+              ></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+            <span>Solution</span>
+          </button>
+          <button class="ap-tab" type="button">
+            <svg
+              class="ap-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 17V6h11v11"></path>
+              <path d="M14 8h5l2 3v6h-2"></path>
+              <circle cx="7" cy="17" r="2"></circle>
+              <circle cx="17" cy="17" r="2"></circle>
+            </svg>
+            <span>Result</span>
+          </button>
+        </div>
+        <button class="ap-tab-nav ap-tab-nav-right" type="button" aria-label="Scroll tabs right">
+          <svg
+            class="ap-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="ap-case-layout">
+        <aside class="ap-case-sidebar">
+          <div class="ap-case-sidebar-inner">
+            <div class="ap-case-logo">
+              VELOCITY
+              <span>RAIL SOLUTIONS</span>
+            </div>
+            <div class="ap-case-meta">
+              <div class="ap-case-meta-item">
+                <div class="ap-case-meta-icon">
+                  <svg
+                    class="ap-icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <div class="ap-case-meta-label">Location</div>
+                  <div class="ap-case-meta-text">City, Country</div>
+                </div>
+              </div>
+              <div class="ap-case-meta-item">
+                <div class="ap-case-meta-icon">
+                  <svg
+                    class="ap-icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M8 22V3h8v19"></path>
+                    <path d="M3 22h18"></path>
+                    <path d="M10 6h4"></path>
+                    <path d="M10 10h4"></path>
+                    <path d="M10 14h4"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="ap-case-meta-label">Business Type</div>
+                  <div class="ap-case-meta-text">Industry</div>
+                </div>
+              </div>
+              <div class="ap-case-meta-item">
+                <div class="ap-case-meta-icon">
+                  <svg
+                    class="ap-icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 17V6h11v11"></path>
+                    <path d="M14 8h5l2 3v6h-2"></path>
+                    <circle cx="7" cy="17" r="2"></circle>
+                    <circle cx="17" cy="17" r="2"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <div class="ap-case-meta-label">Fleet Size</div>
+                  <div class="ap-case-meta-text">800</div>
+                </div>
+              </div>
+              <div class="ap-case-meta-item">
+                <div class="ap-case-meta-icon">
+                  <svg
+                    class="ap-icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                    ></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path
+                      d="M22 21v-2a4 4 0 0 0-3-3.87"
+                    ></path>
+                    <path
+                      d="M16 3.13a4 4 0 0 1 0 7.75"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="ap-case-meta-label">Drivers</div>
+                  <div class="ap-case-meta-text">1283</div>
+                </div>
+              </div>
+            </div>
+            <div class="ap-case-tags">
+              <button class="ap-case-tag" type="button">
+                <svg
+                  class="ap-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                  ></path>
+                </svg>
+                Driver Safety
+              </button>
+              <button class="ap-case-tag" type="button">
+                <svg
+                  class="ap-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                  <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                </svg>
+                Fleet Management
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <div class="ap-case-content">
+          <div>
+            <h3 class="ap-case-block-title">Overview</h3>
+            <p class="ap-case-paragraph">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+              rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+              explicabo.
+            </p>
+            <p class="ap-case-paragraph">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+              rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+              explicabo.
+            </p>
+            <div class="ap-case-stat">
+              <div class="ap-case-stat-bar"></div>
+              <div>
+                <div class="ap-case-stat-number">95%</div>
+                <div class="ap-case-stat-caption">increase in on-time delivery</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="ap-case-block-title">Challenge</h3>
+            <p class="ap-case-paragraph">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+              rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+              explicabo.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="ap-case-block-title">Solution</h3>
+            <p class="ap-case-paragraph">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+              rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+              explicabo.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="ap-case-block-title">Result</h3>
+            <p class="ap-case-paragraph">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+              rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+              explicabo.
+            </p>
+          </div>
+
+          <div class="ap-testimonial">
+            <div class="ap-testimonial-quote-mark">
+              <svg
+                class="ap-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 21c3-2 5-5 5-9a4 4 0 1 0-8 0"
+                ></path>
+                <path
+                  d="M17 21c3-2 5-5 5-9a4 4 0 1 0-8 0"
+                ></path>
+              </svg>
+            </div>
+            <p class="ap-testimonial-text">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+              rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+              explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+              laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+              vitae dicta sunt explicabo.
+            </p>
+            <div class="ap-testimonial-name">John Doe</div>
+            <div class="ap-testimonial-role">Company Name</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="ap-cta">
+    <div class="ap-container">
+      <div class="ap-cta-inner">
+        <div class="ap-cta-text">
+          <div class="ap-cta-label">
+              <svg
+                class="ap-cta-label-dot"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16.5 9.4 7.5 4.21"></path>
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"
+                ></path>
+                <path d="m3.3 7 8.7 5 8.7-5"></path>
+                <path d="M12 22V12"></path>
+              </svg>
+            <span>Asset Management</span>
+          </div>
+          <h2 class="ap-cta-title">
+            Sed ut perspiciatis unde omnis iste natus error sit
+          </h2>
+          <p class="ap-cta-body">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+          </p>
+          <button class="ap-cta-button" type="button">
+            Learn More
+          </button>
+        </div>
+        <div class="ap-cta-media">
+          <div class="ap-cta-image-frame">
+            <img src="./assets/construction-site.jpg" alt="Asset management">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var wrapper = document.querySelector(".amirpress-wrapper");
+  if (!wrapper) return;
+
+  var tabsContainer = wrapper.querySelector(".ap-tabs");
+  var leftButton = wrapper.querySelector(".ap-tab-nav-left");
+  var rightButton = wrapper.querySelector(".ap-tab-nav-right");
+  var tabButtons = wrapper.querySelectorAll(".ap-tab");
+
+  if (tabButtons.length) {
+    tabButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        tabButtons.forEach(function (b) {
+          b.classList.remove("ap-tab--active");
+        });
+        this.classList.add("ap-tab--active");
+      });
+    });
+  }
+
+  function scrollTabs(direction) {
+    if (!tabsContainer || typeof tabsContainer.scrollBy !== "function") return;
+    var amount = 120;
+    tabsContainer.scrollBy({
+      left: direction === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
+  }
+
+  if (leftButton) {
+    leftButton.addEventListener("click", function () {
+      scrollTabs("left");
+    });
+  }
+
+  if (rightButton) {
+    rightButton.addEventListener("click", function () {
+      scrollTabs("right");
+    });
+  }
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "swordhealthorg/zendu-signin-options-mockup",
+	"version": "0.1.0",
+	"title": "Zendu Sign-In Options Mockup",
+	"category": "swordhealth-org-blocks",
+	"description": "Converted from swordhealth HTML blocks.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "swordhealth-org",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "swordhealthorg/zendu-case-studies-grid",
+	"version": "0.1.0",
+	"title": "Zendu Case Studies Grid",
+	"category": "swordhealth-org-blocks",
+	"description": "Converted from swordhealth HTML blocks.",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full" ]
+	},
+	"textdomain": "swordhealth-org",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
