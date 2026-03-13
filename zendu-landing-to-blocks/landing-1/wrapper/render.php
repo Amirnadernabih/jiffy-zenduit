@@ -11,14 +11,13 @@ if ($style_start !== false && $style_end !== false) {
 ?>
 <style><?php echo $style; ?></style>
 <style>
-	.amirpress-wrapper {
-		width: 100vw;
-		max-width: 100vw;
-		margin-left: calc(50% - 50vw);
-		margin-right: calc(50% - 50vw);
-		overflow-x: hidden;
+	.amirpress-wrapper.alignfull {
+		width: 100%;
+		max-width: none !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 </style>
-<div class="amirpress-wrapper">
+<div class="amirpress-wrapper alignfull">
 	<?php echo $content; ?>
 </div>
