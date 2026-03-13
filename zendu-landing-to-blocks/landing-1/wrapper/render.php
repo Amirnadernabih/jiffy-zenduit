@@ -10,6 +10,15 @@ if ($style_start !== false && $style_end !== false) {
 }
 ?>
 <style><?php echo $style; ?></style>
+<style>
+	.amirpress-wrapper {
+		width: 100vw;
+		max-width: 100vw;
+		margin-left: calc(50% - 50vw);
+		margin-right: calc(50% - 50vw);
+		overflow-x: hidden;
+	}
+</style>
 <div class="amirpress-wrapper">
 	<?php echo $content; ?>
 </div>
