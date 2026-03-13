@@ -1,15 +1,11 @@
 <?php
-$template_path = defined('SWORDHEALTH_ORG_ROOT') ? SWORDHEALTH_ORG_ROOT . '/inc/templates/dubai-launch.html' : '';
-$template = $template_path && is_readable($template_path) ? file_get_contents($template_path) : '';
-
-$style_start = strpos($template, '<style>');
-$style_end = $style_start !== false ? strpos($template, '</style>', $style_start) : false;
-$style = '';
-if ($style_start !== false && $style_end !== false) {
-    $style = substr($template, $style_start + 7, $style_end - ($style_start + 7));
-}
+$css_url = function_exists('swordhealth_org_asset_url')
+	? swordhealth_org_asset_url('zenduIT-dubailaunch-updated/css/landing.css')
+	: '';
 ?>
-<style><?php echo $style; ?></style>
-<section class="dubai-launcher-wrapper">
+<?php if ($css_url) : ?>
+	<link rel="stylesheet" href="<?php echo esc_url($css_url); ?>" />
+<?php endif; ?>
+<div class="dubai-launcher-wrapper min-h-screen bg-background">
 	<?php echo $content; ?>
-</section>
+</div>
