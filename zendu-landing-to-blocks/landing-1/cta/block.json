@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zltb/landing-1-cta",
+	"version": "0.1.0",
+	"title": "Landing 1 Bottom CTA",
+	"category": "widgets",
+	"description": "Bottom CTA section from amirpress.html.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "swordhealth-org",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

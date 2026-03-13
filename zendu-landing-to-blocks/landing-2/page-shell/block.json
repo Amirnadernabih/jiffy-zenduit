@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zltb/landing-2-page-shell",
+	"version": "0.1.0",
+	"title": "Landing 2 Page Shell",
+	"category": "widgets",
+	"description": "Main content container div from dubai-launch.html.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "swordhealth-org",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

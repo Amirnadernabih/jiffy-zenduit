@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zltb/landing-2-industry-breakdown",
+	"version": "0.1.0",
+	"title": "Landing 2 Industry Breakdown",
+	"category": "widgets",
+	"description": "Industry breakdown section from dubai-launch.html.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "swordhealth-org",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

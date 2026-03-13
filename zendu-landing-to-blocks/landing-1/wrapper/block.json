@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zltb/landing-1-wrapper",
+	"version": "0.1.0",
+	"title": "Landing 1 Wrapper (Amirpress)",
+	"category": "widgets",
+	"description": "Wrapper for landing-1 sections. Extracted from amirpress.html.",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full" ]
+	},
+	"textdomain": "swordhealth-org",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
